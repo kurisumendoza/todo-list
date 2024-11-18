@@ -14,8 +14,8 @@ export class Task {
   completeTask() {}
 
   deleteTask(id) {
-    const taskToDelete = this.tasksList.findIndex((tasks, i) => {
-      if (id === tasks.id) return true;
+    const taskToDelete = this.tasksList.findIndex((task) => {
+      if (id === task.id) return true;
     });
     this.tasksList.splice(taskToDelete, 1);
   }

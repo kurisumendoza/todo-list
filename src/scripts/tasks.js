@@ -13,7 +13,12 @@ export class Task {
 
   completeTask() {}
 
-  deleteTask() {}
+  deleteTask(id) {
+    const taskToDelete = this.tasksList.findIndex((tasks, i) => {
+      if (id === tasks.id) return true;
+    });
+    this.tasksList.splice(taskToDelete, 1);
+  }
 
   rearrangeTask() {}
 

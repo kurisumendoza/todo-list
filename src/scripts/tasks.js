@@ -9,13 +9,16 @@ export class Task {
 
   editTask() {}
 
-  pinTask() {}
+  pinTask(id) {
+    this.tasksList[this.findTaskByID(id)].pin = 'pinned';
+  }
+
+  removePin() {}
 
   completeTask() {}
 
   deleteTask(id) {
-    const taskToDelete = this.findTaskByID(id);
-    this.tasksList.splice(taskToDelete, 1);
+    this.tasksList.splice(this.findTaskByID(id), 1);
   }
 
   findTaskByID(id) {

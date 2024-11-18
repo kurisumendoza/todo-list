@@ -14,10 +14,14 @@ export class Task {
   completeTask() {}
 
   deleteTask(id) {
-    const taskToDelete = this.tasksList.findIndex((task) => {
+    const taskToDelete = this.findTaskByID(id);
+    this.tasksList.splice(taskToDelete, 1);
+  }
+
+  findTaskByID(id) {
+    return this.tasksList.findIndex((task) => {
       if (id === task.id) return true;
     });
-    this.tasksList.splice(taskToDelete, 1);
   }
 
   rearrangeTask() {}

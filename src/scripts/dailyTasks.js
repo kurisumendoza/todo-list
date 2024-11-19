@@ -1,6 +1,12 @@
 import { Task } from './tasks';
 
-export const dailyTask = new Task();
+class DailyTask extends Task {
+  setRecurring(id, frequency) {
+    this.tasksList[this.findByID(id)].recurring = frequency;
+  }
+}
+
+export const dailyTask = new DailyTask();
 
 dailyTask.add(1, 'eat', 'during midday', '12-10-2024', '12:30');
 dailyTask.add(2, 'eat again', 'during midnight', '12-11-2024', '00:30');
@@ -14,5 +20,6 @@ dailyTask.edit(3, 'maybe eat once more', 'before sleep', '12-11-2024', '03:30');
 dailyTask.markComplete(2);
 // dailyTask.markIncomplete(2);
 dailyTask.rearrange(4, 0);
+dailyTask.setRecurring(4, 'daily');
 
 dailyTask.log();

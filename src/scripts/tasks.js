@@ -51,8 +51,4 @@ export class Task {
       this.tasksList.splice(this.findByID(id), 1)[0]
     );
   }
-
-  log() {
-    console.log(this.tasksList);
-  }
 }

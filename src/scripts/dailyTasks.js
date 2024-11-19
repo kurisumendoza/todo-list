@@ -2,20 +2,14 @@ import { Task } from './tasks';
 
 export const dailyTask = new Task();
 
-dailyTask.addTask(1, 'eat', 'during midday', '12-10-2024', '12:30');
-dailyTask.addTask(2, 'eat again', 'during midnight', '12-11-2024', '00:30');
-dailyTask.addTask(3, 'eat once more', 'before sleep', '12-11-2024', '03:30');
+dailyTask.add(1, 'eat', 'during midday', '12-10-2024', '12:30');
+dailyTask.add(2, 'eat again', 'during midnight', '12-11-2024', '00:30');
+dailyTask.add(3, 'eat once more', 'before sleep', '12-11-2024', '03:30');
 
-dailyTask.deleteTask(1);
-dailyTask.pinTask(3);
+dailyTask.delete(1);
+dailyTask.pin(3);
 // dailyTask.removePin(3);
-dailyTask.editTask(
-  3,
-  'maybe eat once more',
-  'before sleep',
-  '12-11-2024',
-  '03:30'
-);
+dailyTask.edit(3, 'maybe eat once more', 'before sleep', '12-11-2024', '03:30');
 dailyTask.markComplete(2);
 dailyTask.markIncomplete(2);
 

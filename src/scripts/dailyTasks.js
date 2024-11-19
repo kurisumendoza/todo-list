@@ -8,9 +8,7 @@ dailyTask.addTask(3, 'eat once more', 'before sleep', '12-11-2024', '03:30');
 
 dailyTask.deleteTask(1);
 dailyTask.pinTask(3);
-
 // dailyTask.removePin(3);
-
 dailyTask.editTask(
   3,
   'maybe eat once more',
@@ -18,5 +16,7 @@ dailyTask.editTask(
   '12-11-2024',
   '03:30'
 );
+dailyTask.markComplete(2);
+dailyTask.markIncomplete(2);
 
 dailyTask.log();

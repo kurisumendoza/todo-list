@@ -25,7 +25,13 @@ export class Task {
     delete this.tasksList[this.findTaskByID(id)].pin;
   }
 
-  completeTask() {}
+  markComplete(id) {
+    this.tasksList[this.findTaskByID(id)].complete = 'complete';
+  }
+
+  markIncomplete(id) {
+    delete this.tasksList[this.findTaskByID(id)].complete;
+  }
 
   deleteTask(id) {
     this.tasksList.splice(this.findTaskByID(id), 1);

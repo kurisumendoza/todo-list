@@ -43,7 +43,13 @@ export class Task {
     });
   }
 
-  rearrange() {}
+  rearrange(id, newPos) {
+    this.tasksList.splice(
+      newPos,
+      0,
+      this.tasksList.splice(this.findByID(id), 1)[0]
+    );
+  }
 
   log() {
     console.log(this.tasksList);

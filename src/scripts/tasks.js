@@ -7,7 +7,15 @@ export class Task {
     this.tasksList.push({ id, task, note, date, time });
   }
 
-  editTask() {}
+  editTask(id, task, note, date, time) {
+    this.tasksList[this.findTaskByID(id)] = {
+      ...this.tasksList[this.findTaskByID(id)],
+      task,
+      note,
+      date,
+      time,
+    };
+  }
 
   pinTask(id) {
     this.tasksList[this.findTaskByID(id)].pin = 'pinned';

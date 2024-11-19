@@ -13,7 +13,9 @@ export class Task {
     this.tasksList[this.findTaskByID(id)].pin = 'pinned';
   }
 
-  removePin() {}
+  removePin(id) {
+    delete this.tasksList[this.findTaskByID(id)].pin;
+  }
 
   completeTask() {}
 

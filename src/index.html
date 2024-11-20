@@ -14,16 +14,36 @@
           <li>Monthlies</li>
         </ul>
       </nav>
-      <section>
-        <button class="previous">‹</button>
-        <div class="day">December</div>
-        <div class="date">December 10, 2024</div>
-        <button class="next">›</button>
-      </section>
-      <main>
-        <div class="pinned"></div>
-        <div class="tasks-list">Create a Todo List!</div>
-      </main>
     </header>
+    <section class="title-section">
+      <button class="previous">‹</button>
+      <div class="date-container">
+        <div class="day">Tuesday</div>
+        <div class="date">December 10, 2024</div>
+      </div>
+      <button class="next">›</button>
+    </section>
+    <main>
+      <input type="text" placeholder="Add a task" />
+      <div class="pinned"></div>
+      <div class="tasks-list">
+        <div class="task-container">
+          <input type="checkbox" />
+          <div class="task-details">
+            <p class="task-name">This is the task</p>
+            <p class="task-note">This is the note about the task</p>
+          </div>
+          <button class="manage-task">⋯</button>
+        </div>
+        <div class="task-container">
+          <input type="checkbox" />
+          <div class="task-details">
+            <p class="task-name">This is another task</p>
+            <p class="task-note">This is another note about the task</p>
+          </div>
+          <button class="manage-task">⋯</button>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

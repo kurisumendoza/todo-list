@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --header: #c75b7a;
+  --background: #921a40;
+  --font-color: #f5f5f5;
+  --secondary-font-color: #f4d9d0;
+  --accent: #d9abab;
+  --checkmark: #1f4529;
+  --placeholder: #00000090;
+}
+
+body {
+  font-family: Yantramanav, sans-serif;
+  color: var(--font-color);
+  background-color: var(--background);
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  background-color: var(--header);
+  padding: 1.5rem 30%;
+}
+
+header > nav > ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.title-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 5rem;
+  padding: 5rem 40%;
+}
+
+.day {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.date {
+  font-weight: 300;
+  text-align: center;
+  color: var(--secondary-font-color);
+}
+
+.previous,
+.next {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  background-color: transparent;
+  border: none;
+}
+
+main {
+  padding: 0.5rem 30%;
+}
+
+main > input {
+  font-size: 1rem;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: var(--placeholder);
+  font-family: Yantramanav, sans-serif;
+}
+
+.task-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.task-note {
+  font-size: 0.9rem;
+  font-weight: 200;
+}
+
+.manage-task {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--font-color);
+  margin-left: auto;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+}
+
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 0.1rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+input[type='checkbox']::before {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  clip-path: polygon(
+    0% 50%,
+    20% 70%,
+    45% 100%,
+    70% 70%,
+    100% 0%,
+    85% 0%,
+    50% 60%,
+    30% 40%,
+    10% 50%
+  );
+  transform: scale(0);
+  background-color: var(--checkmark);
+}
+
+input[type='checkbox']:checked::before {
+  transform: scale(1);
+}

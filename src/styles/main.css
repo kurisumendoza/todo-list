@@ -147,3 +147,48 @@ input[type='checkbox']::before {
 input[type='checkbox']:checked::before {
   transform: scale(1);
 }
+
+main > dialog[open] {
+  color: var(--font-color);
+  background-color: var(--header);
+  padding: 2rem;
+  border: none;
+  border-radius: 10px;
+  width: 40vw;
+  position: relative;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-form input {
+  background-color: var(--accent);
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.okay-btn {
+  margin-top: 1rem;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+}
+
+.cancel-btn {
+  font-size: 1.5rem;
+  color: var(--accent);
+  background-color: var(--background);
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.25rem;
+  border: none;
+  border-radius: 25%;
+  height: 2rem;
+  width: 2rem;
+}

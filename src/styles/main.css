@@ -26,6 +26,10 @@ button {
   cursor: pointer;
 }
 
+dialog {
+  margin: auto;
+}
+
 header {
   background-color: var(--header);
   padding: 1.5rem 30%;

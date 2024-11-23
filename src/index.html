@@ -24,9 +24,32 @@
       <button class="next">›</button>
     </section>
     <main>
-      <input type="text" placeholder="Add a task" />
+      <input class="add-task" type="text" placeholder="Add a task" />
       <div class="pinned"></div>
       <div class="tasks-list"></div>
+      <dialog class="task-details-modal">
+        <form action="">
+          <label for="task">Task:</label>
+          <input class="task-input" id="task" name="task" type="text" />
+          <label for="note">Note:</label>
+          <input class="task-input" id="note" name="note" type="text" />
+          <label for="date">Date:</label>
+          <input class="task-input" id="date" name="date" type="text" />
+          <label for="time">Time:</label>
+          <input class="task-input" id="time" name="time" type="text" />
+          <label for="recurrence">Recurrence:</label>
+          <input
+            class="task-input"
+            id="recurrence"
+            name="recurrence"
+            type="text"
+          />
+          <div>
+            <button class="okay-btn">Okay</button>
+            <button class="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </dialog>
     </main>
   </body>
 </html>

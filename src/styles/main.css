@@ -76,7 +76,11 @@ main {
   padding: 0.5rem 30%;
 }
 
-main > input {
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper > input {
   font-size: 1rem;
   background-color: var(--accent);
   border: none;
@@ -84,7 +88,18 @@ main > input {
   width: 100%;
   height: 2.5rem;
   padding: 0 1rem;
-  margin-bottom: 1.5rem;
+}
+
+.input-wrapper > button {
+  visibility: hidden;
+  background: transparent;
+  border: none;
+  color: var(--placeholder);
+  font-size: 1.1rem;
+  position: absolute;
+  height: 100%;
+  padding-right: 1rem;
+  right: 0;
 }
 
 input:focus {
@@ -149,7 +164,7 @@ input[type='checkbox']:checked::before {
 }
 
 main > dialog[open] {
-  color: var(--font-color);
+  color: var(--secondary-font-color);
   background-color: var(--header);
   padding: 2rem;
   border: none;
@@ -172,15 +187,20 @@ main > dialog[open] {
   margin-bottom: 1rem;
 }
 
-.okay-btn {
+input[type='submit'] {
   margin-top: 1rem;
   border: none;
   padding: 0.75rem;
   border-radius: 5px;
+  font-weight: bold;
+  color: var(--secondary-font-color);
+  background-color: var(--background);
+  cursor: pointer;
 }
 
 .cancel-btn {
   font-size: 1.5rem;
+  font-weight: bold;
   color: var(--accent);
   background-color: var(--background);
   position: absolute;

@@ -24,7 +24,10 @@
       <button class="next">›</button>
     </section>
     <main>
-      <input class="add-task" type="text" placeholder="Add a task" />
+      <div class="input-wrapper">
+        <input class="add-task" type="text" placeholder="Add a task" />
+        <button class="okay-btn">OK</button>
+      </div>
       <div class="pinned"></div>
       <div class="tasks-list"></div>
       <dialog class="task-details-modal">
@@ -44,7 +47,13 @@
             name="recurrence"
             type="text"
           />
-          <button class="okay-btn">Okay</button>
+          <input
+            class="okay-btn"
+            id="okay"
+            name="okay"
+            value="Okay"
+            type="submit"
+          />
           <button class="cancel-btn">×</button>
         </form>
       </dialog>

@@ -4,8 +4,8 @@ export class Task {
   }
 
   add(taskDetails) {
-    const { id, task, note, date, time, recurrence = 'None' } = taskDetails;
-    this.tasksList.push({ id, task, note, date, time, recurrence });
+    const { id, task, note, date, time, recurrence = 'none' } = taskDetails;
+    this.tasksList.push({ id, task, note, date, time, recurrence, category });
   }
 
   edit(id, task, note, date, time) {

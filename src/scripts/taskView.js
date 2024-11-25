@@ -2,7 +2,7 @@ import { tasksListContainer } from './selectors';
 
 let html = '';
 
-export const assignHTML = function (tasksList) {
+const assignHTML = function (tasksList) {
   tasksList.forEach((_, i) => {
     html += `
     <div class="task-container">
@@ -21,6 +21,7 @@ export const assignHTML = function (tasksList) {
   });
 };
 
-export const renderTask = function () {
+export const renderTask = function (tasksList) {
+  assignHTML(tasksList);
   tasksListContainer.insertAdjacentHTML('afterbegin', html);
 };

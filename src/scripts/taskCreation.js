@@ -1,6 +1,6 @@
 import { TaskModal } from './taskModal';
 import { addTaskInput, addTaskBtn, taskModalUI } from './selectors';
-import { renderTask } from './taskView';
+import { renderNewTask } from './taskView';
 
 export const createTask = new TaskModal(taskModalUI);
 
@@ -17,7 +17,7 @@ const saveTask = function (category) {
 };
 
 const displayTask = function (category) {
-  renderTask(category.tasksList);
+  renderNewTask(category.tasksList);
 };
 
 addTaskInput.addEventListener('input', () => {

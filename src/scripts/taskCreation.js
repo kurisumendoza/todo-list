@@ -1,6 +1,7 @@
 import { TaskModal } from './taskModal';
 import { addTaskInput, addTaskBtn, taskModalUI } from './selectors';
 import { renderNewTask } from './taskView';
+import { saveToLocalStorage } from './storageManager';
 
 export const createTask = new TaskModal(taskModalUI);
 
@@ -47,5 +48,9 @@ taskModalUI.okay.addEventListener('click', (e) => {
   e.preventDefault();
   saveTask(createTask.category(taskModalUI.category.value));
   displayTask(createTask.category(taskModalUI.category.value));
+  saveToLocalStorage(
+    taskModalUI.category.value,
+    createTask.category(taskModalUI.category.value)
+  );
   createTask.close();
 });

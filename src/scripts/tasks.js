@@ -1,10 +1,22 @@
+import ShortUniqueId from 'short-unique-id';
+
+const uid = new ShortUniqueId();
+
 export class Task {
   constructor() {
     this.tasksList = [];
   }
 
   add(taskDetails) {
-    const { id, task, note, date, time, recurrence = 'none' } = taskDetails;
+    const {
+      id = uid.randomUUID(),
+      task,
+      note,
+      date,
+      time,
+      recurrence = 'none',
+      category,
+    } = taskDetails;
     this.tasksList.push({ id, task, note, date, time, recurrence, category });
   }
 

@@ -14,10 +14,22 @@ export class Task {
       note,
       date,
       time,
+      pinned = false,
+      completed = false,
       recurrence = 'none',
       category,
     } = taskDetails;
-    this.tasksList.push({ id, task, note, date, time, recurrence, category });
+    this.tasksList.push({
+      id,
+      task,
+      note,
+      date,
+      time,
+      pinned,
+      completed,
+      recurrence,
+      category,
+    });
   }
 
   edit(id, task, note, date, time) {
@@ -30,20 +42,14 @@ export class Task {
     };
   }
 
-  pin(id) {
-    this.tasksList[this.findByID(id)].pin = 'pinned';
+  togglePin(id) {
+    this.tasksList[this.findByID(id)].pinned =
+      !this.tasksList[this.findByID(id)].pinned;
   }
 
-  removePin(id) {
-    delete this.tasksList[this.findByID(id)].pin;
-  }
-
-  markComplete(id) {
-    this.tasksList[this.findByID(id)].complete = 'complete';
-  }
-
-  markIncomplete(id) {
-    delete this.tasksList[this.findByID(id)].complete;
+  toggleCompletion(id) {
+    this.tasksList[this.findByID(id)].completed =
+      !this.tasksList[this.findByID(id)].completed;
   }
 
   delete(id) {

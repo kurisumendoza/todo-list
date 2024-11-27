@@ -3,7 +3,7 @@ import { addTaskInput, addTaskBtn, taskModalUI } from './selectors';
 import { renderNewTask } from './taskView';
 import { saveToLocalStorage } from './storageManager';
 
-export const createTask = new TaskModal(taskModalUI);
+const createTask = new TaskModal();
 
 const addTextToDialog = function () {
   taskModalUI.task.value = addTaskInput.value.trim();

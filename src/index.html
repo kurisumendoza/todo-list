@@ -35,20 +35,22 @@
           <label for="task">Task:</label>
           <input class="task-input" id="task" name="task" type="text" />
           <label for="note">Note:</label>
-          <input class="task-input" id="note" name="note" type="text" />
+          <input id="note" name="note" type="text" />
           <label for="date">Date:</label>
-          <input class="task-input" id="date" name="date" type="text" />
+          <input id="date" name="date" type="text" />
           <label for="time">Time:</label>
-          <input class="task-input" id="time" name="time" type="text" />
+          <input id="time" name="time" type="text" />
           <label for="recurrence">Recurrence:</label>
-          <input
-            class="task-input"
-            id="recurrence"
-            name="recurrence"
-            type="text"
-          />
-          <label for="category">Category:</label>
-          <input class="task-input" id="category" name="category" type="text" />
+          <input id="recurrence" name="recurrence" type="text" />
+          <div class="category-wrapper">
+            <label for="category">Category:</label>
+            <select name="category" id="category">
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </div>
+
           <input
             class="okay-btn"
             id="okay"

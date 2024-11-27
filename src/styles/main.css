@@ -11,9 +11,10 @@
   --background: #921a40;
   --font-color: #f5f5f5;
   --secondary-font-color: #f4d9d0;
+  --alternative-font-color: #000000;
+  --placeholder: #00000090;
   --accent: #d9abab;
   --checkmark: #b03052;
-  --placeholder: #00000090;
 }
 
 body {
@@ -22,12 +23,17 @@ body {
   background-color: var(--background);
 }
 
-button {
+button,
+select {
   cursor: pointer;
 }
 
 dialog {
   margin: auto;
+}
+
+:focus {
+  outline: none;
 }
 
 header {
@@ -102,13 +108,13 @@ main {
   right: 0;
 }
 
-input:focus {
-  outline: none;
-}
-
 ::placeholder {
   color: var(--placeholder);
   font-family: Yantramanav, sans-serif;
+}
+
+.tasks-list {
+  margin-top: 1rem;
 }
 
 .task-container {
@@ -185,6 +191,32 @@ main > dialog[open] {
   padding: 0.5rem;
   border-radius: 5px;
   margin-bottom: 1rem;
+}
+
+.category-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.75rem 0;
+}
+
+#category {
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  color: var(--alternative-font-color);
+  background-color: var(--accent);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+option:hover {
+  background-color: #000000;
+}
+
+.task-form input:focus,
+#category:focus {
+  outline: 2px dotted var(--background);
 }
 
 input[type='submit'] {

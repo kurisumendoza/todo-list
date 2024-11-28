@@ -12,6 +12,6 @@ export const taskModalUI = {
   note: document.getElementById('note'),
   date: document.getElementById('date'),
   time: document.getElementById('time'),
-  recurrence: document.getElementById('recurrence'),
   category: document.getElementById('category'),
+  recurrence: document.getElementsByName('recurrence'),
 };

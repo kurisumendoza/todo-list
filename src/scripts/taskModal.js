@@ -10,6 +10,7 @@ export class TaskModal {
       weekly: weeklyTask,
       monthly: monthlyTask,
     };
+    this.recurrence = [];
   }
 
   open() {
@@ -26,8 +27,8 @@ export class TaskModal {
       task: taskModalUI.task.value,
       note: taskModalUI.note.value,
       date: taskModalUI.date.value,
-      time: taskModalUI.date.value,
-      recurrence: taskModalUI.date.value,
+      time: taskModalUI.time.value,
+      recurrence: this.recurrence,
     };
   }
 
@@ -38,5 +39,11 @@ export class TaskModal {
 
   category(option) {
     if (this.categories.hasOwnProperty(option)) return this.categories[option];
+  }
+
+  getRecurrence() {
+    taskModalUI.recurrence.forEach((day) => {
+      if (day.checked) this.recurrence.push(day.value);
+    });
   }
 }

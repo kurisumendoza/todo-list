@@ -3,7 +3,6 @@ import { renderTasksList } from './taskView';
 
 export const saveToLocalStorage = function (key, category) {
   localStorage.setItem(key, JSON.stringify(category.tasksList));
-  console.log(key, category);
 };
 
 export const loadFromLocalStorage = function (key) {
@@ -15,5 +14,6 @@ export const renderSavedTasks = function (key, category) {
   if (!loadFromLocalStorage(key)) return;
   category.tasksList = loadFromLocalStorage(key);
   renderTasksList(category.tasksList);
+  console.log(loadFromLocalStorage(key));
 };
 renderSavedTasks('daily', dailyTask);

@@ -46,6 +46,7 @@ taskModalUI.cancel.addEventListener('click', (e) => {
 });
 taskModalUI.okay.addEventListener('click', (e) => {
   e.preventDefault();
+  createTask.getRecurrence();
   saveTask(createTask.category(taskModalUI.category.value));
   displayTask(createTask.category(taskModalUI.category.value));
   saveToLocalStorage(

@@ -40,8 +40,6 @@
           <input id="date" name="date" type="text" />
           <label for="time">Time:</label>
           <input id="time" name="time" type="text" />
-          <label for="recurrence">Recurrence:</label>
-          <input id="recurrence" name="recurrence" type="text" />
           <div class="category-wrapper">
             <label for="category">Category:</label>
             <select name="category" id="category">
@@ -50,7 +48,69 @@
               <option value="monthly">Monthly</option>
             </select>
           </div>
-
+          <fieldset>
+            <legend>Repeats Every:</legend>
+            <div class="daily-recurrence">
+              <div>
+                <label for="monday">M</label>
+                <input type="checkbox" id="monday" name="monday" />
+              </div>
+              <div>
+                <label for="tuesday">T</label>
+                <input type="checkbox" id="tuesday" name="tuesday" />
+              </div>
+              <div>
+                <label for="wednesday">W</label>
+                <input type="checkbox" id="wednesday" name="wednesday" />
+              </div>
+              <div>
+                <label for="thursday">T</label>
+                <input type="checkbox" id="thursday" name="thursday" />
+              </div>
+              <div>
+                <label for="friday">F</label>
+                <input type="checkbox" id="friday" Fame="friday" F />
+              </div>
+              <div>
+                <label for="saturday">S</label>
+                <input type="checkbox" id="saturday" name="saturday" />
+              </div>
+              <div>
+                <label for="sunday">S</label>
+                <input type="checkbox" id="sunday" name="sunday" />
+              </div>
+            </div>
+            <div class="weekly-recurrence">
+              <div>
+                <label for="monday">M</label>
+                <input type="radio" id="monday" name="week" />
+              </div>
+              <div>
+                <label for="tuesday">T</label>
+                <input type="radio" id="tuesday" name="week" />
+              </div>
+              <div>
+                <label for="wednesday">W</label>
+                <input type="radio" id="wednesday" name="week" />
+              </div>
+              <div>
+                <label for="thursday">T</label>
+                <input type="radio" id="thursday" name="week" />
+              </div>
+              <div>
+                <label for="friday">F</label>
+                <input type="radio" id="friday" name="week" />
+              </div>
+              <div>
+                <label for="saturday">S</label>
+                <input type="radio" id="saturday" name="week" />
+              </div>
+              <div>
+                <label for="sunday">S</label>
+                <input type="radio" id="sunday" name="week" />
+              </div>
+            </div>
+          </fieldset>
           <input
             class="okay-btn"
             id="okay"

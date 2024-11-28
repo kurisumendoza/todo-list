@@ -25,7 +25,13 @@ const generateTasksListHTML = function (tasksList) {
   });
 };
 
+const clearTasksListHTML = function () {
+  tasksHTML = [];
+  tasksListContainer.innerHTML = '';
+};
+
 export const renderTasksList = function (tasksList) {
+  clearTasksListHTML();
   generateTasksListHTML(tasksList);
   tasksListContainer.insertAdjacentHTML('afterbegin', tasksHTML.join(''));
 };

@@ -41,6 +41,9 @@ addTaskBtn.addEventListener('click', () => {
   createTask.open();
   addTextToDialog();
 });
+taskModalUI.category.addEventListener('change', (e) =>
+  createTask.switchRecurrence(e.target.value)
+);
 taskModalUI.cancel.addEventListener('click', (e) => {
   e.preventDefault();
   createTask.close();

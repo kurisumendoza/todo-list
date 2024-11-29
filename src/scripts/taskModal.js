@@ -2,6 +2,7 @@ import { dailyTask } from './dailyTasks';
 import { weeklyTask } from './weeklyTasks';
 import { monthlyTask } from './monthlyTasks';
 import { taskModalUI } from './selectors';
+import { showElement, hideElement } from './helpers';
 
 export class TaskModal {
   constructor() {
@@ -45,5 +46,23 @@ export class TaskModal {
     taskModalUI.recurrence.forEach((day) => {
       if (day.checked) this.recurrence.push(day.value);
     });
+  }
+
+  switchRecurrence(option) {
+    if (option === 'daily') {
+      showElement(taskModalUI.recurrenceLabel);
+      showElement(taskModalUI.dailyRecurrence, 'grid');
+      hideElement(taskModalUI.weeklyRecurrence);
+    }
+    if (option === 'weekly') {
+      showElement(taskModalUI.recurrenceLabel);
+      hideElement(taskModalUI.dailyRecurrence);
+      showElement(taskModalUI.weeklyRecurrence, 'grid');
+    }
+    if (option === 'monthly') {
+      hideElement(taskModalUI.recurrenceLabel);
+      hideElement(taskModalUI.dailyRecurrence);
+      hideElement(taskModalUI.weeklyRecurrence);
+    }
   }
 }

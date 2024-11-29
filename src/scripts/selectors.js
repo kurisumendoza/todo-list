@@ -18,5 +18,8 @@ export const taskModalUI = {
   date: document.getElementById('date'),
   time: document.getElementById('time'),
   category: document.getElementById('category'),
+  recurrenceLabel: document.querySelector('.recurrence-label'),
   recurrence: document.getElementsByName('recurrence'),
+  dailyRecurrence: document.querySelector('.daily-recurrence'),
+  weeklyRecurrence: document.querySelector('.weekly-recurrence'),
 };

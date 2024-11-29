@@ -2,6 +2,7 @@ import { TaskModal } from './taskModal';
 import { addTaskInput, addTaskBtn, taskModalUI } from './selectors';
 import { renderNewTask } from './taskView';
 import { saveToLocalStorage } from './storageManager';
+import { filterTasks } from './taskFilter';
 
 const createTask = new TaskModal();
 
@@ -46,6 +47,7 @@ taskModalUI.cancel.addEventListener('click', (e) => {
 });
 taskModalUI.okay.addEventListener('click', (e) => {
   e.preventDefault();
+  filterTasks(taskModalUI.category.value);
   createTask.getRecurrence();
   saveTask(createTask.category(taskModalUI.category.value));
   displayTask(createTask.category(taskModalUI.category.value));

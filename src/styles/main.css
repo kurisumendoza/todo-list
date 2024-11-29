@@ -8,6 +8,7 @@
 
 :root {
   --header: #c75b7a;
+  --header-highlight: #00000010;
   --background: #921a40;
   --font-color: #f5f5f5;
   --secondary-font-color: #f4d9d0;
@@ -38,15 +39,30 @@ dialog {
 
 header {
   background-color: var(--header);
-  padding: 1.5rem 30%;
+  padding: 5px 0;
 }
 
-header > nav > ul {
+.task-filter {
   list-style-type: none;
-  display: flex;
-  justify-content: space-around;
+  height: 4rem;
+  padding: 0 30%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
   font-size: 1.25rem;
   cursor: pointer;
+}
+
+.task-filter > li {
+  height: inherit;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+#daily {
+  background-color: var(--header-highlight);
 }
 
 .title-section {

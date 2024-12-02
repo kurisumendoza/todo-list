@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.3.0/dist/duet/duet.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.3.0/dist/duet/duet.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.3.0/dist/duet/themes/default.css"
+    />
     <title>Todo List</title>
   </head>
   <body>
@@ -37,9 +49,9 @@
           <label for="note">Note:</label>
           <input id="note" name="note" type="text" />
           <label for="date">Date:</label>
-          <input id="date" name="date" type="text" />
+          <duet-date-picker identifier="date" id="date"></duet-date-picker>
           <label for="time">Time:</label>
-          <input id="time" name="time" type="text" />
+          <input id="time" name="time" type="time" />
           <div class="category-wrapper">
             <label for="category">Category:</label>
             <select name="category" id="category">
@@ -130,6 +142,7 @@
                   id="monday"
                   name="recurrence"
                   value="monday"
+                  checked
                 />
               </div>
               <div>

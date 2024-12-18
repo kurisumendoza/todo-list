@@ -34,6 +34,7 @@ const clearTasksListHTML = function () {
 
 export const renderTasksList = function (tasksList) {
   clearTasksListHTML();
+  if (tasksList.length === 0) return;
   generateTasksListHTML(tasksList);
   tasksListContainer.insertAdjacentHTML('afterbegin', tasksHTML.join(''));
 };

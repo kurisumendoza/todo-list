@@ -8,7 +8,10 @@ let currentPage = 'daily';
 const filters = categoriesObj;
 
 export const filterTasksRender = function (key, filter) {
-  if (!loadFromLocalStorage(key)) return;
+  if (!loadFromLocalStorage(key)) {
+    renderTasksList([]);
+    return;
+  }
   filter.tasksList = loadFromLocalStorage(key);
   renderTasksList(filter.tasksList);
 };

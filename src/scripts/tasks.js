@@ -17,6 +17,7 @@ export class Task {
       pinned = false,
       completed = false,
       recurrence = 'none',
+      tag = 'daily',
     } = taskDetails;
     this.tasksList.push({
       id,
@@ -27,6 +28,7 @@ export class Task {
       pinned,
       completed,
       recurrence,
+      tag,
     });
   }
 

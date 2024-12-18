@@ -1,16 +1,9 @@
-import { dailyTask } from './dailyTasks';
-import { weeklyTask } from './weeklyTasks';
-import { monthlyTask } from './monthlyTasks';
 import { taskModalUI } from './selectors';
-import { showElement, hideElement } from './helpers';
+import { categoriesObj, showElement, hideElement } from './helpers';
 
 export class TaskModal {
   constructor() {
-    this.categories = {
-      daily: dailyTask,
-      weekly: weeklyTask,
-      monthly: monthlyTask,
-    };
+    this.categories = categoriesObj;
     this.recurrence = [];
   }
 
@@ -30,6 +23,7 @@ export class TaskModal {
       date: taskModalUI.date.value,
       time: taskModalUI.time.value,
       recurrence: this.recurrence,
+      tag: taskModalUI.category.value,
     };
   }
 

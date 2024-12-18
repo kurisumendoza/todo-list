@@ -42,7 +42,8 @@ body {
 }
 
 button,
-select {
+select,
+input[type='checkbox'] {
   cursor: pointer;
 }
 
@@ -157,6 +158,11 @@ main {
   margin-bottom: 0.5rem;
 }
 
+.completed {
+  text-decoration: line-through;
+  opacity: 50%;
+}
+
 .task-note {
   font-size: 0.9rem;
   font-weight: 200;
@@ -246,6 +252,10 @@ main > dialog[open] {
 .task-form input:focus,
 #category:focus {
   outline: 2px dotted var(--background);
+}
+
+input[type='time'] {
+  font-family: Yantramanav;
 }
 
 fieldset {
@@ -344,6 +354,7 @@ input[type='submit'] {
 
 ::-webkit-scrollbar {
   width: 7.5px;
+  height: 7.5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -355,6 +366,11 @@ input[type='submit'] {
   border-radius: 4px;
 }
 
+::-webkit-scrollbar-corner {
+  background-color: var(--header);
+  border-bottom-right-radius: 4px;
+}
+
 /* Duet Library */
 .duet-date__toggle {
   height: inherit;
@@ -363,6 +379,10 @@ input[type='submit'] {
   right: 0;
   bottom: 1rem;
   margin: 0;
+}
+
+.duet-date__input {
+  pointer-events: none;
 }
 
 .duet-date__toggle-icon svg {

@@ -4,10 +4,12 @@ let tasksHTML = [];
 
 const generateTaskHTML = function (entry) {
   return `
-    <div class="task-container">
-      <input type="checkbox" />
+    <div class="task-container" data-id="${entry.id}" data-tag="${entry.tag}">
+      <input type="checkbox" ${entry.completed ? 'checked' : ''} />
         <div class="task-details">
-          <p class="task-name">${entry.task}</p>
+          <p class="task-name ${entry.completed ? 'completed' : ''}">
+            ${entry.task}
+          </p>
           <p class="task-note">${entry.note}</p>
         </div>
         <div class="task-date-and-time">

@@ -1,17 +1,11 @@
 import { renderTasksList } from './taskView';
-import { dailyTask } from './dailyTasks';
-import { weeklyTask } from './weeklyTasks';
-import { monthlyTask } from './monthlyTasks';
+import { categoriesObj } from './helpers';
 import { taskFilterUI } from './selectors';
 import { loadFromLocalStorage } from './storageManager';
 
 let currentPage = 'daily';
 
-const filters = {
-  daily: dailyTask,
-  weekly: weeklyTask,
-  monthly: monthlyTask,
-};
+const filters = categoriesObj;
 
 export const filterTasksRender = function (key, filter) {
   if (!loadFromLocalStorage(key)) return;

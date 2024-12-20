@@ -1,10 +1,7 @@
 export const tasksListContainer = document.querySelector('.tasks-list');
-export const taskContainer = document.querySelectorAll;
 
 export const addTaskInput = document.querySelector('.add-task');
 export const addTaskBtn = document.querySelector('.okay-btn');
-
-export const taskCategories = {};
 
 export const taskFilterUI = document.querySelector('.task-filter');
 

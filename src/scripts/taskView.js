@@ -46,3 +46,25 @@ export const renderNewTask = function (tasksList) {
     tasksHTML[tasksHTML.length - 1]
   );
 };
+
+// Task Management
+
+const generateTaskManageHTML = function () {
+  return `
+    <dialog class="manage-modal">
+      <ul class="manage-list">
+        <li class="manage-task edit-task">Edit</li>
+        <li class="manage-task move-task">Move</li>
+        <li class="manage-task delete-task">Delete</li>
+      </ul>
+      <div class="manage-arrow"></div>
+    </dialog>
+  `;
+};
+
+export const renderTaskManageModal = function () {
+  tasksListContainer.insertAdjacentHTML(
+    'beforebegin',
+    generateTaskManageHTML()
+  );
+};

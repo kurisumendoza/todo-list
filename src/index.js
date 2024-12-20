@@ -4,6 +4,7 @@ import { monthlyTask } from './scripts/monthlyTasks';
 import { addTask } from './scripts/taskCreation';
 import { filterTasksRender as initializeTodoList } from './scripts/taskFilter';
 import { toggleCompletion } from './scripts/taskCompletion';
+import { manageTask } from './scripts/taskManagement';
 import styles from './styles/main.css';
 
 window.addEventListener(

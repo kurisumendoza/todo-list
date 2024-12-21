@@ -1,3 +1,5 @@
+import { weeklyTask } from './weeklyTasks';
+
 export const tasksListContainer = document.querySelector('.tasks-list');
 
 export const addTaskInput = document.querySelector('.add-task');
@@ -19,4 +21,10 @@ export const taskModalUI = {
   recurrence: document.getElementsByName('recurrence'),
   dailyRecurrence: document.querySelector('.daily-recurrence'),
   weeklyRecurrence: document.querySelector('.weekly-recurrence'),
+  dailyCheckboxes: document.querySelectorAll(
+    '.daily-recurrence input[type="checkbox"]'
+  ),
+  weeklyRadios: document.querySelectorAll(
+    '.weekly-recurrence input[type="radio"]'
+  ),
 };

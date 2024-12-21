@@ -1,9 +1,11 @@
 import { tasksListContainer } from './selectors';
 import { renderTaskManageModal } from './taskView';
+import { editTask, editTaskModal } from './taskEditing';
 
 renderTaskManageModal();
 
-let taskToManage;
+const taskToManage = {};
+
 const taskManageModal = document.querySelector('.manage-modal');
 
 export const openTaskManagement = function (e) {
@@ -12,7 +14,8 @@ export const openTaskManagement = function (e) {
   taskManageModal.style.left = `${rect.right + window.scrollX}px`;
   taskManageModal.style.top = `${rect.top + window.scrollY}px`;
   taskManageModal.showModal();
-  taskToManage = e.target.closest('.task-container').dataset.id;
+  taskToManage.id = e.target.closest('.task-container').dataset.id;
+  taskToManage.tag = e.target.closest('.task-container').dataset.tag;
 };
 
 tasksListContainer.addEventListener('click', (e) => {
@@ -20,4 +23,8 @@ tasksListContainer.addEventListener('click', (e) => {
 });
 taskManageModal.addEventListener('click', (e) => {
   if (e.target === taskManageModal) taskManageModal.close();
+  if (e.target.classList.contains('edit-task')) {
+    editTaskModal(taskToManage);
+    taskManageModal.close();
+  }
 });

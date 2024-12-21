@@ -32,13 +32,15 @@ export class Task {
     });
   }
 
-  edit(id, task, note, date, time) {
+  edit(id, task, note, date, time, recurrence, tag) {
     this.tasksList[this.findByID(id)] = {
       ...this.tasksList[this.findByID(id)],
       task,
       note,
       date,
       time,
+      recurrence,
+      tag,
     };
   }
 

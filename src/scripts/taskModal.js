@@ -2,6 +2,8 @@ import { taskModalUI } from './selectors';
 import { categoriesObj, showElement, hideElement } from './helpers';
 
 export class TaskModal {
+  static editMode = false;
+
   constructor() {
     this.categories = categoriesObj;
     this.recurrence = [];
@@ -15,6 +17,8 @@ export class TaskModal {
   close() {
     taskModalUI.modal.close();
     taskModalUI.form.reset();
+    taskModalUI.date.value = '';
+    TaskModal.editMode = false;
   }
 
   save() {
@@ -38,12 +42,14 @@ export class TaskModal {
   }
 
   getRecurrence() {
+    this.recurrence = [];
     taskModalUI.recurrence.forEach((day) => {
       if (day.checked) this.recurrence.push(day.value);
     });
   }
 
   manageRecurrence(option, state, days = []) {
+    if (option === 'monthly') return;
     const recurrenceMap = {
       daily: taskModalUI.dailyCheckboxes,
       weekly: taskModalUI.weeklyRadios,
@@ -57,6 +63,8 @@ export class TaskModal {
         if (specifiedDay.includes(day.value)) day.checked = state;
         else day.checked = !state;
       });
+
+    this.recurrence = specifiedDay;
   }
 
   switchRecurrence(option) {

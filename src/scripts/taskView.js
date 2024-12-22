@@ -47,6 +47,20 @@ export const renderNewTask = function (tasksList) {
   );
 };
 
+const editedTaskTemplate = function (html) {
+  const template = document.createElement('template');
+  template.innerHTML = html.trim();
+  return template.content.firstChild;
+};
+
+export const renderEditedTask = function (tasksList, pos) {
+  const editedTask = generateTaskHTML(tasksList[pos]);
+  tasksHTML.splice(pos, 1, editedTask);
+  document
+    .querySelector(`[data-id="${tasksList[pos].id}"]`)
+    .replaceWith(editedTaskTemplate(tasksHTML[pos]));
+};
+
 // Task Management
 
 const generateTaskManageHTML = function () {

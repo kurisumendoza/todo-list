@@ -1,6 +1,6 @@
 import { tasksListContainer } from './selectors';
 import { renderTaskManageModal } from './taskView';
-import { editTask, editTaskModal } from './taskEditing';
+import { editTaskModal } from './taskEditing';
 
 renderTaskManageModal();
 

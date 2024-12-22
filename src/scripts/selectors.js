@@ -11,6 +11,7 @@ export const taskModalUI = {
   modal: document.querySelector('.task-details-modal'),
   form: document.querySelector('.task-form'),
   okay: document.getElementById('okay'),
+  save: document.getElementById('save'),
   cancel: document.querySelector('.cancel-btn'),
   task: document.getElementById('task'),
   note: document.getElementById('note'),

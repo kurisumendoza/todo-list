@@ -3,6 +3,7 @@ import { addTaskInput, addTaskBtn, taskModalUI } from './selectors';
 import { renderNewTask } from './taskView';
 import { saveToLocalStorage } from './storageManager';
 import { filterTasks } from './taskFilter';
+import { showElement, hideElement } from './helpers';
 
 const createTask = new TaskModal();
 
@@ -10,6 +11,13 @@ const addTextToDialog = function () {
   taskModalUI.task.value = addTaskInput.value.trim();
   addTaskInput.value = '';
   addTaskBtn.style.visibility = 'hidden';
+};
+
+const startTaskCreation = function () {
+  createTask.open();
+  addTextToDialog();
+  showElement(taskModalUI.okay);
+  hideElement(taskModalUI.save);
 };
 
 const isInputEmpty = () => addTaskInput.value.trim().length < 1;
@@ -21,6 +29,10 @@ const saveTask = function (category) {
 const displayTask = function (category) {
   renderNewTask(category.tasksList);
 };
+
+taskModalUI.form.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') e.preventDefault();
+});
 
 addTaskInput.addEventListener('input', () => {
   if (isInputEmpty()) return;
@@ -34,16 +46,15 @@ addTaskInput.addEventListener('keydown', (e) => {
   if (e.key !== 'Enter') return;
   if (addTaskInput.value.trim().length <= 0) return;
   e.preventDefault();
-  createTask.open();
-  addTextToDialog();
+  startTaskCreation();
 });
 addTaskBtn.addEventListener('click', () => {
-  createTask.open();
-  addTextToDialog();
+  startTaskCreation();
 });
-taskModalUI.category.addEventListener('change', (e) =>
-  createTask.switchRecurrence(e.target.value)
-);
+taskModalUI.category.addEventListener('change', (e) => {
+  if (TaskModal.editMode) return;
+  createTask.switchRecurrence(e.target.value);
+});
 taskModalUI.cancel.addEventListener('click', (e) => {
   e.preventDefault();
   createTask.close();

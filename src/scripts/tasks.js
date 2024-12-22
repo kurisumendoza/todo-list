@@ -7,17 +7,17 @@ export class Task {
     this.tasksList = [];
   }
 
-  add(taskDetails) {
+  add(taskDetails, sameID) {
     const {
-      id = uid.randomUUID(),
+      id = sameID || uid.randomUUID(),
       task,
       note,
       date,
       time,
       pinned = false,
       completed = false,
-      recurrence = 'none',
-      tag = 'daily',
+      recurrence,
+      tag,
     } = taskDetails;
     this.tasksList.push({
       id,
@@ -32,9 +32,11 @@ export class Task {
     });
   }
 
-  edit(id, task, note, date, time, recurrence, tag) {
+  edit(id, taskDetails) {
+    const { task, note, date, time, recurrence, tag } = taskDetails;
     this.tasksList[this.findByID(id)] = {
       ...this.tasksList[this.findByID(id)],
+      id,
       task,
       note,
       date,

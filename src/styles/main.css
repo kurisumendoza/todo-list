@@ -370,8 +370,13 @@ input[type='submit'] {
   list-style-type: none;
   font-size: 1rem;
   font-weight: inherit;
+  color: var(--secondary-font-color);
   padding: 0.1rem 0;
   cursor: pointer;
+}
+
+.manage-task:hover {
+  color: var(--font-color);
 }
 
 .manage-arrow {
@@ -382,6 +387,28 @@ input[type='submit'] {
   top: 45%;
   left: -0.75rem;
   clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+.confirm-delete[open] {
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.confirm-delete[open] > button {
+  border: none;
+  border-radius: 3px;
+  width: 3rem;
+  background-color: var(--checkmark);
+  color: var(--secondary-font-color);
+  padding: 0.5rem;
+}
+
+.confirm-delete[open] > button:hover {
+  opacity: 80%;
 }
 
 ::-webkit-scrollbar {

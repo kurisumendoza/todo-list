@@ -82,3 +82,25 @@ export const renderTaskManageModal = function () {
     generateTaskManageHTML()
   );
 };
+
+const generateConfirmDeleteHTML = function () {
+  return `
+    <dialog class="confirm-delete">
+      <p>Delete Task?</p>
+      <button class="del-yes">Yes</button>
+      <button class="del-no">No</button>
+    </dialog>
+  `;
+};
+
+export const renderConfirmDeleteModal = function () {
+  tasksListContainer.insertAdjacentHTML(
+    'beforebegin',
+    generateConfirmDeleteHTML()
+  );
+};
+
+export const removeDeletedTask = function (tasksList, pos) {
+  tasksHTML.splice(pos, 1);
+  document.querySelector(`[data-id="${tasksList[pos].id}"]`).remove();
+};

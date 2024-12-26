@@ -1,4 +1,4 @@
-import { tasksListContainer } from './selectors';
+import { tasksListContainer, pinnedContainer } from './selectors';
 import { categoriesObj } from './helpers';
 import { saveToLocalStorage } from './storageManager';
 
@@ -26,3 +26,4 @@ export const toggleCompletion = function (e) {
 tasksListContainer.addEventListener('click', (e) => {
   toggleCompletion(e);
 });
+pinnedContainer.addEventListener('click', (e) => toggleCompletion(e));

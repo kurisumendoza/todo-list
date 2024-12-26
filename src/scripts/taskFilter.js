@@ -2,6 +2,7 @@ import { renderTasksList } from './taskView';
 import { categoriesObj } from './helpers';
 import { taskFilterUI } from './selectors';
 import { loadFromLocalStorage } from './storageManager';
+import { togglePinnedView } from './taskView';
 
 let currentPage = 'daily';
 
@@ -28,6 +29,7 @@ export const filterTasks = function (filter) {
   if (filters.hasOwnProperty(filter)) {
     filterTasksRender(filter, filters[filter]);
   }
+  togglePinnedView(categoriesObj[filter].tasksList);
 };
 
 taskFilterUI.addEventListener('click', (e) => {

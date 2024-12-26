@@ -1,6 +1,6 @@
-import { weeklyTask } from './weeklyTasks';
-
 export const tasksListContainer = document.querySelector('.tasks-list');
+export const pinnedContainer = document.querySelector('.pinned-container');
+export const pinnedTasks = document.querySelector('.pinned-tasks');
 
 export const addTaskInput = document.querySelector('.add-task');
 export const addTaskBtn = document.querySelector('.okay-btn');

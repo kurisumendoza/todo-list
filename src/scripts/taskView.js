@@ -1,6 +1,8 @@
-import { tasksListContainer } from './selectors';
+import { tasksListContainer, pinnedContainer, pinnedTasks } from './selectors';
+import { showElement, hideElement } from './helpers';
 
 let tasksHTML = [];
+let pinnedTasksHTML = [];
 
 const generateTaskHTML = function (entry) {
   return `
@@ -23,12 +25,15 @@ const generateTaskHTML = function (entry) {
 
 const generateTasksListHTML = function (tasksList) {
   tasksList.forEach((task) => {
-    tasksHTML.push(generateTaskHTML(task));
+    if (!task.pinned) tasksHTML.push(generateTaskHTML(task));
+    else pinnedTasksHTML.push(generateTaskHTML(task));
   });
 };
 
 const clearTasksListHTML = function () {
   tasksHTML = [];
+  pinnedTasksHTML = [];
+  pinnedTasks.innerHTML = '';
   tasksListContainer.innerHTML = '';
 };
 
@@ -36,6 +41,7 @@ export const renderTasksList = function (tasksList) {
   clearTasksListHTML();
   if (tasksList.length === 0) return;
   generateTasksListHTML(tasksList);
+  pinnedTasks.insertAdjacentHTML('afterbegin', pinnedTasksHTML.join(''));
   tasksListContainer.insertAdjacentHTML('afterbegin', tasksHTML.join(''));
 };
 
@@ -67,6 +73,7 @@ const generateTaskManageHTML = function () {
   return `
     <dialog class="manage-modal">
       <ul class="manage-list">
+        <li class="manage-task pin-task">Pin</li>
         <li class="manage-task edit-task">Edit</li>
         <li class="manage-task move-task">Move</li>
         <li class="manage-task delete-task">Delete</li>
@@ -101,6 +108,30 @@ export const renderConfirmDeleteModal = function () {
 };
 
 export const removeDeletedTask = function (tasksList, pos) {
-  tasksHTML.splice(pos, 1);
+  if (!tasksList[pos].pinned) tasksHTML.splice(pos, 1);
+  else pinnedTasksHTML.splice(pos, 1);
   document.querySelector(`[data-id="${tasksList[pos].id}"]`).remove();
+};
+
+export const togglePinnedView = function (tasksList) {
+  const check = tasksList.some((task) => task.pinned);
+  if (check) showElement(pinnedContainer);
+  else hideElement(pinnedContainer);
+};
+
+export const pinToTop = function (tasksList, pos) {
+  removeDeletedTask(tasksList, pos);
+  if (tasksList[pos].pinned) {
+    pinnedTasksHTML.push(generateTaskHTML(tasksList[pos]));
+    pinnedTasks.insertAdjacentHTML(
+      'beforeend',
+      pinnedTasksHTML[pinnedTasksHTML.length - 1]
+    );
+  } else {
+    tasksHTML.push(generateTaskHTML(tasksList[pos]));
+    tasksListContainer.insertAdjacentHTML(
+      'beforeend',
+      tasksHTML[tasksHTML.length - 1]
+    );
+  }
 };

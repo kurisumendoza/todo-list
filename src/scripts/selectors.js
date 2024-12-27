@@ -1,3 +1,5 @@
+export const mainTasksListContainer = document.querySelector('main');
+
 export const tasksListContainer = document.querySelector('.tasks-list');
 export const pinnedContainer = document.querySelector('.pinned-container');
 export const pinnedTasks = document.querySelector('.pinned-tasks');

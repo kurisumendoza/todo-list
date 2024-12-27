@@ -1,5 +1,6 @@
 import { tasksListContainer, pinnedTasks } from './selectors';
 import { editTaskModal } from './taskEditing';
+import { moveTask } from './reorderTasks';
 import { categoriesObj } from './helpers';
 import { saveToLocalStorage } from './storageManager';
 import {
@@ -26,7 +27,7 @@ export const openTaskManagement = function (e) {
   taskManageModal.showModal();
   taskToManage.id = e.target.closest('.task-container').dataset.id;
   taskToManage.tag = e.target.closest('.task-container').dataset.tag;
-  console.log(taskToManage);
+  taskToManage.container = e.target.closest('.task-container');
 };
 
 const deleteTask = function ({ id, tag }) {
@@ -57,6 +58,7 @@ taskManageModal.addEventListener('click', (e) => {
   if (e.target.classList.contains('delete-task'))
     confirmDeleteModal.showModal();
   if (e.target.classList.contains('pin-task')) pinTask(taskToManage);
+  if (e.target.classList.contains('move-task')) moveTask(taskToManage);
   taskManageModal.close();
 });
 confirmDeleteModal.addEventListener('click', (e) => {

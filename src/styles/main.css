@@ -39,6 +39,11 @@ body {
   font-family: Yantramanav, sans-serif;
   color: var(--font-color);
   background-color: var(--background);
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 button,
@@ -170,6 +175,7 @@ main {
 .task-container {
   display: flex;
   gap: 1rem;
+  padding: 0.25rem 0;
   align-items: center;
   margin-bottom: 0.5rem;
 }

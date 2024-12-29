@@ -3,6 +3,7 @@ import { editTaskModal } from './taskEditing';
 import { moveTask } from './reorderTasks';
 import { categoriesObj } from './helpers';
 import { saveToLocalStorage } from './storageManager';
+import { isSameDay } from './taskFilterByDate';
 import {
   renderTaskManageModal,
   renderConfirmDeleteModal,
@@ -28,6 +29,12 @@ export const openTaskManagement = function (e) {
   taskToManage.id = e.target.closest('.task-container').dataset.id;
   taskToManage.tag = e.target.closest('.task-container').dataset.tag;
   taskToManage.container = e.target.closest('.task-container');
+
+  console.log(
+    categoriesObj[taskToManage.tag].tasksList[
+      categoriesObj[taskToManage.tag].findByID(taskToManage.id)
+    ].recurrence
+  );
 };
 
 const deleteTask = function ({ id, tag }) {

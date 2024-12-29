@@ -4,7 +4,9 @@ import { taskFilterUI } from './selectors';
 import { loadFromLocalStorage } from './storageManager';
 import { togglePinnedView } from './taskView';
 
-let currentPage = 'daily';
+export const currentPage = {
+  tag: 'daily',
+};
 
 const filters = categoriesObj;
 
@@ -18,14 +20,15 @@ export const filterTasksRender = function (key, filter) {
 };
 
 const filterHighlight = function (filter) {
-  document.getElementById(currentPage).style.backgroundColor = 'transparent';
+  document.getElementById(currentPage.tag).style.backgroundColor =
+    'transparent';
   document.getElementById(filter).style.backgroundColor = '#00000010';
 };
 
 export const filterTasks = function (filter) {
-  if (currentPage === filter) return;
+  if (currentPage.tag === filter) return;
   filterHighlight(filter);
-  currentPage = filter;
+  currentPage.tag = filter;
   if (filters.hasOwnProperty(filter)) {
     filterTasksRender(filter, filters[filter]);
   }

@@ -1,5 +1,6 @@
 import { tasksListContainer, pinnedContainer, pinnedTasks } from './selectors';
 import { showElement, hideElement } from './helpers';
+import { isSameDay, hasNotStarted } from './taskFilterByDate';
 
 let tasksHTML = [];
 let pinnedTasksHTML = [];
@@ -17,7 +18,7 @@ const generateTaskHTML = function (entry) {
         <div class="task-date-and-time">
           <p class="task-date">${entry.date}</p>
           <p class="task-time">${entry.time}</p>
-      </div>
+        </div>
       <button class="manage-task">⋯</button>
     </div>
   `;
@@ -25,6 +26,11 @@ const generateTaskHTML = function (entry) {
 
 const generateTasksListHTML = function (tasksList) {
   tasksList.forEach((task) => {
+    if (hasNotStarted(task.date)) return;
+    if (task.recurrence.length > 0) {
+      if (!isSameDay(task.recurrence)) return;
+    }
+
     if (!task.pinned) tasksHTML.push(generateTaskHTML(task));
     else pinnedTasksHTML.push(generateTaskHTML(task));
   });
@@ -61,10 +67,11 @@ const editedTaskTemplate = function (html) {
 
 export const renderEditedTask = function (tasksList, pos) {
   const editedTask = generateTaskHTML(tasksList[pos]);
-  tasksHTML.splice(pos, 1, editedTask);
+  const html = tasksList[pos].pinned ? pinnedTasksHTML : tasksHTML;
+  html.splice(pos, 1, editedTask);
   document
     .querySelector(`[data-id="${tasksList[pos].id}"]`)
-    .replaceWith(editedTaskTemplate(tasksHTML[pos]));
+    .replaceWith(editedTaskTemplate(editedTask));
 };
 
 // Task Management
@@ -114,8 +121,10 @@ export const removeDeletedTask = function (tasksList, pos) {
 };
 
 export const togglePinnedView = function (tasksList) {
-  const check = tasksList.some((task) => task.pinned);
-  if (check) showElement(pinnedContainer);
+  const hasPinned = tasksList.filter((task) => task.pinned);
+  const hasSameDay = hasPinned.some((task) => isSameDay(task.recurrence));
+
+  if (hasSameDay) showElement(pinnedContainer);
   else hideElement(pinnedContainer);
 };
 

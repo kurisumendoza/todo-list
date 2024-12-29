@@ -33,6 +33,10 @@ const changeTag = function (newTag) {
 const editedTask = function () {
   if (!taskDetails.newTag) {
     categoriesObj[taskDetails.tag].edit(taskDetails.id, editTask.save());
+    console.log(
+      categoriesObj[taskDetails.tag].tasksList,
+      categoriesObj[taskDetails.tag].findByID(taskDetails.id)
+    );
     renderEditedTask(
       categoriesObj[taskDetails.tag].tasksList,
       categoriesObj[taskDetails.tag].findByID(taskDetails.id)

@@ -1,7 +1,11 @@
 import moment from 'moment';
 import { dateNavUI } from './selectors';
+import { categoriesObj } from './helpers';
+import { currentPage } from './taskFilterByTag';
+import { renderTasksList, togglePinnedView } from './taskView';
 
-const dateObj = {
+export const dateObj = {
+  rawDate: moment(),
   day: moment().format('dddd'),
   date: moment().format('LL'),
 };
@@ -24,8 +28,11 @@ const changeDate = function (direction, btn) {
   dayNavClicks += direction;
   dateObj.day = moment().add(dayNavClicks, 'days').format('dddd');
   dateObj.date = moment().add(dayNavClicks, 'days').format('LL');
+  dateObj.rawDate = moment().add(dayNavClicks, 'days');
   dateNavUI.previousDayBtn.style.opacity = '';
   dateNavUI.nextDayBtn.style.opacity = '';
+  togglePinnedView(categoriesObj[currentPage.tag].tasksList);
+  renderTasksList(categoriesObj[currentPage.tag].tasksList);
   updateDateDisplay();
 };
 

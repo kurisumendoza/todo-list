@@ -2,7 +2,7 @@ import { TaskModal } from './taskModal';
 import { addTaskInput, addTaskBtn, taskModalUI } from './selectors';
 import { renderNewTask } from './taskView';
 import { saveToLocalStorage } from './storageManager';
-import { filterTasks } from './taskFilter';
+import { filterTasks } from './taskFilterByTag';
 import { showElement, hideElement } from './helpers';
 
 const createTask = new TaskModal();

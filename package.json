@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@duetds/date-picker": "^1.4.0",
+    "moment": "^2.30.1",
     "short-unique-id": "^5.2.0",
     "sortablejs": "^1.15.6"
   }

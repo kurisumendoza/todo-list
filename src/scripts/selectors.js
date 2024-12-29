@@ -1,3 +1,10 @@
+export const dateNavUI = {
+  day: document.querySelector('.day'),
+  date: document.querySelector('.date'),
+  previousDayBtn: document.querySelector('.previous-day'),
+  nextDayBtn: document.querySelector('.next-day'),
+};
+
 export const mainTasksListContainer = document.querySelector('main');
 
 export const tasksListContainer = document.querySelector('.tasks-list');

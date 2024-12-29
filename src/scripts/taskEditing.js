@@ -1,6 +1,6 @@
 import { TaskModal } from './taskModal';
 import { taskModalUI } from './selectors';
-import { filterTasks } from './taskFilter';
+import { filterTasks } from './taskFilterByTag';
 import { renderNewTask, renderEditedTask } from './taskView';
 import { categoriesObj, showElement, hideElement } from './helpers';
 import { saveToLocalStorage } from './storageManager';

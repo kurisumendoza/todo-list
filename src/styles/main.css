@@ -16,6 +16,7 @@
   --placeholder: #00000090;
   --accent: #d9abab;
   --checkmark: #b03052;
+  --error: #6d0d0d;
 
   --duet-color-primary: #921a40;
   --duet-color-text: #333;
@@ -200,7 +201,7 @@ main {
   font-weight: 200;
 }
 
-.task-date-and-time {
+.task-time {
   font-size: 0.75rem;
   margin-left: auto;
 }
@@ -238,6 +239,11 @@ input[type='checkbox']::before {
 
 input[type='checkbox']:checked::before {
   transform: scale(1);
+}
+
+.task-container > input[type='checkbox']:active {
+  transform: scale(1.15);
+  transition: 0.1s ease;
 }
 
 main > dialog[open] {
@@ -356,6 +362,12 @@ legend {
   transform: translate(-50%, -50%);
   z-index: 1;
   pointer-events: none;
+}
+
+.error-daily {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--error);
 }
 
 input[type='submit'] {

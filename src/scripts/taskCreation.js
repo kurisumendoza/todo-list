@@ -61,6 +61,7 @@ taskModalUI.cancel.addEventListener('click', (e) => {
 });
 taskModalUI.okay.addEventListener('click', (e) => {
   e.preventDefault();
+  if (!createTask.validateDailyRecurrence()) return;
   filterTasks(taskModalUI.category.value);
   createTask.getRecurrence();
   saveTask(createTask.category(taskModalUI.category.value));
@@ -70,4 +71,7 @@ taskModalUI.okay.addEventListener('click', (e) => {
     createTask.category(taskModalUI.category.value)
   );
   createTask.close();
+});
+taskModalUI.dailyRecurrence.addEventListener('click', () => {
+  createTask.toggleDailyRecurrenceError();
 });

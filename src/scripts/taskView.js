@@ -15,9 +15,8 @@ const generateTaskHTML = function (entry) {
           </p>
           <p class="task-note">${entry.note}</p>
         </div>
-        <div class="task-date-and-time">
-          <p class="task-date">${entry.date}</p>
-          <p class="task-time">${entry.time}</p>
+        <div class="task-time">
+          <p>${entry.time}</p>
         </div>
       <button class="manage-task">⋯</button>
     </div>

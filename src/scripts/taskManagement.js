@@ -29,12 +29,6 @@ export const openTaskManagement = function (e) {
   taskToManage.id = e.target.closest('.task-container').dataset.id;
   taskToManage.tag = e.target.closest('.task-container').dataset.tag;
   taskToManage.container = e.target.closest('.task-container');
-
-  console.log(
-    categoriesObj[taskToManage.tag].tasksList[
-      categoriesObj[taskToManage.tag].findByID(taskToManage.id)
-    ].recurrence
-  );
 };
 
 const deleteTask = function ({ id, tag }) {

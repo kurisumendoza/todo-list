@@ -37,4 +37,5 @@ export const taskModalUI = {
   weeklyRadios: document.querySelectorAll(
     '.weekly-recurrence input[type="radio"]'
   ),
+  error: document.querySelector('.error-daily'),
 };

@@ -7,5 +7,3 @@ export const isSameDay = function (task) {
 export const hasNotStarted = function (date) {
   if (dateObj.rawDate.isBefore(date, 'day')) return true;
 };
-
-console.log(dateObj.rawDate.isBefore('2024-12-30', 'day'));

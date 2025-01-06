@@ -516,7 +516,7 @@ input[type='submit'] {
   border: 2px solid var(--duet-color-primary);
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1024px) {
   .task-filter {
     padding: 0 20%;
   }

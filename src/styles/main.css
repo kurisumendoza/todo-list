@@ -91,10 +91,11 @@ header {
 
 .date-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 5rem;
   padding: 5rem 40%;
+  gap: 50px;
 }
 
 .date-container {
@@ -189,6 +190,10 @@ main {
   padding: 0.25rem 0;
   align-items: center;
   margin-bottom: 0.5rem;
+}
+
+.task-details {
+  overflow: hidden;
 }
 
 .completed {
@@ -509,4 +514,37 @@ input[type='submit'] {
 
 .is-today {
   border: 2px solid var(--duet-color-primary);
+}
+
+@media only screen and (max-width: 1000px) {
+  .task-filter {
+    padding: 0 20%;
+  }
+
+  .date-section {
+    padding: 5rem 35%;
+  }
+
+  main {
+    padding: 0.5rem 20%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .task-filter {
+    padding: 0 12.5%;
+    gap: 25px;
+  }
+
+  .date-section {
+    padding: 5rem 1%;
+  }
+
+  .date-container {
+    width: 200px;
+  }
+
+  main {
+    padding: 0.5rem 12.5%;
+  }
 }

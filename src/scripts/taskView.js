@@ -5,9 +5,10 @@ import { isSameDay, hasNotStarted } from './taskFilterByDate';
 let tasksHTML = [];
 let pinnedTasksHTML = [];
 
-const generateTaskHTML = function (entry) {
+const generateTaskHTML = function (entry, notToday) {
   return `
-    <div class="task-container" data-id="${entry.id}" data-tag="${entry.tag}">
+    <div class="task-container" data-id="${entry.id}" data-tag="${entry.tag}"
+      ${notToday ? 'style="display: none;"' : ''}>
       <input type="checkbox" ${entry.completed ? 'checked' : ''} />
         <div class="task-details">
           <p class="task-name ${entry.completed ? 'completed' : ''}">
@@ -25,13 +26,13 @@ const generateTaskHTML = function (entry) {
 
 const generateTasksListHTML = function (tasksList) {
   tasksList.forEach((task) => {
-    if (hasNotStarted(task.date)) return;
-    if (task.recurrence.length > 0) {
-      if (!isSameDay(task.recurrence)) return;
-    }
+    let notToday = false;
+    if (hasNotStarted(task.date)) notToday = true;
+    if (task.recurrence.length > 0 && !isSameDay(task.recurrence))
+      notToday = true;
 
-    if (!task.pinned) tasksHTML.push(generateTaskHTML(task));
-    else pinnedTasksHTML.push(generateTaskHTML(task));
+    if (!task.pinned) tasksHTML.push(generateTaskHTML(task, notToday));
+    else pinnedTasksHTML.push(generateTaskHTML(task, notToday));
   });
 };
 
@@ -132,7 +133,7 @@ export const pinToTop = function (tasksList, pos) {
   if (tasksList[pos].pinned) {
     pinnedTasksHTML.push(generateTaskHTML(tasksList[pos]));
     pinnedTasks.insertAdjacentHTML(
-      'beforeend',
+      'afterbegin',
       pinnedTasksHTML[pinnedTasksHTML.length - 1]
     );
   } else {

@@ -568,3 +568,9 @@ input[type='submit'] {
     clip-path: polygon(100% 50%, 0 0, 0 100%);
   }
 }
+
+/* Sortable JS */
+.drag-handle button,
+.drag-handle input[type='checkbox'] {
+  pointer-events: none;
+}

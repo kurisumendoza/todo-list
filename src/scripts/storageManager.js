@@ -1,6 +1,3 @@
-import { dailyTask } from './dailyTasks';
-import { renderTasksList } from './taskView';
-
 export const saveToLocalStorage = function (key, category) {
   localStorage.setItem(key, JSON.stringify(category.tasksList));
 };

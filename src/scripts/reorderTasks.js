@@ -4,6 +4,8 @@ import { saveToLocalStorage } from './storageManager';
 
 export const moveTask = function ({ container }) {
   const tasks = container.parentNode;
+  container.classList.add('drag-handle');
+  addStyleOnMove(container);
   const sortable = Sortable.create(tasks, {
     animation: 150,
     easing: 'cubic-bezier(1, 0, 0, 1)',
@@ -21,8 +23,6 @@ export const moveTask = function ({ container }) {
       e.preventDefault();
     },
   });
-  container.classList.add('drag-handle');
-  addStyleOnMove(container);
 };
 
 const addStyleOnMove = function (container) {
@@ -51,11 +51,11 @@ const removeStyle = function (container) {
 };
 
 const updateTasksListIndex = function (id, tasksGroup, newIndex) {
-  const unpinned = tasksGroup.tasksList.filter(
-    (task) => task.pinned === false
+  const pinned = tasksGroup.tasksList.filter(
+    (task) => task.pinned === true
   ).length;
 
   if (tasksGroup.tasksList[tasksGroup.findByID(id)].pinned)
-    tasksGroup.rearrange(id, newIndex + unpinned);
-  else tasksGroup.rearrange(id, newIndex);
+    tasksGroup.rearrange(id, newIndex);
+  else tasksGroup.rearrange(id, newIndex + pinned);
 };

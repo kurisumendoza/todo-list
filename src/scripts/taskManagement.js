@@ -42,7 +42,7 @@ const deleteTask = function ({ id, tag }) {
 };
 
 const pinTask = function ({ id, tag }) {
-  categoriesObj[tag].rearrange(id, categoriesObj[tag].tasksList.length - 1);
+  categoriesObj[tag].rearrange(id, 0);
   categoriesObj[tag].togglePin(id);
   pinToTop(categoriesObj[tag].tasksList, categoriesObj[tag].findByID(id));
   saveToLocalStorage(tag, categoriesObj[tag]);

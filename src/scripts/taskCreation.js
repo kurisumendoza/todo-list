@@ -33,7 +33,6 @@ const displayTask = function (category) {
 taskModalUI.form.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') e.preventDefault();
 });
-
 addTaskInput.addEventListener('input', () => {
   if (isInputEmpty()) return;
   addTaskBtn.style.visibility = 'visible';
@@ -54,6 +53,7 @@ addTaskBtn.addEventListener('click', () => {
 taskModalUI.category.addEventListener('change', (e) => {
   if (TaskModal.editMode) return;
   createTask.switchRecurrence(e.target.value);
+  createTask.toggleDailyRecurrenceError(taskModalUI.category.value);
 });
 taskModalUI.cancel.addEventListener('click', (e) => {
   e.preventDefault();
@@ -73,5 +73,5 @@ taskModalUI.okay.addEventListener('click', (e) => {
   createTask.close();
 });
 taskModalUI.dailyRecurrence.addEventListener('click', () => {
-  createTask.toggleDailyRecurrenceError();
+  createTask.toggleDailyRecurrenceError(taskModalUI.category.value);
 });

@@ -12,7 +12,7 @@ export class TaskModal {
   open() {
     taskModalUI.modal.showModal();
     this.switchRecurrence('daily');
-    this.toggleDailyRecurrenceError();
+    this.toggleDailyRecurrenceError('daily');
   }
 
   close() {
@@ -92,16 +92,16 @@ export class TaskModal {
     }
   }
 
-  toggleDailyRecurrenceError() {
-    if (!this.validateDailyRecurrence()) showElement(taskModalUI.error);
+  toggleDailyRecurrenceError(tag) {
+    if (!this.validateDailyRecurrence(tag)) showElement(taskModalUI.error);
     else hideElement(taskModalUI.error);
   }
 
-  validateDailyRecurrence() {
+  validateDailyRecurrence(tag) {
     const checked = Array.from(taskModalUI.dailyCheckboxes).filter(
       (checkbox) => checkbox.checked === true
     );
-    if (checked.length <= 1) {
+    if (checked.length <= 1 && tag === 'daily') {
       return false;
     } else return true;
   }

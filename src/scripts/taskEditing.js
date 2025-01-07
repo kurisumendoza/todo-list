@@ -58,7 +58,7 @@ const saveEditedTask = function () {
 
 taskModalUI.save.addEventListener('click', (e) => {
   e.preventDefault();
-  if (!editTask.validateDailyRecurrence()) return;
+  if (!editTask.validateDailyRecurrence(taskDetails.tag)) return;
   saveEditedTask();
   editTask.close();
 });

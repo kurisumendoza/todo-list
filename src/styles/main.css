@@ -112,6 +112,7 @@ header {
   font-weight: 300;
   text-align: center;
   color: var(--secondary-font-color);
+  white-space: nowrap;
 }
 
 .previous-day,
@@ -335,6 +336,7 @@ legend {
 
 .weekly-recurrence input {
   appearance: none;
+  -webkit-appearance: none;
   transform: scale(2);
   border-radius: 2.5px;
 }
@@ -528,6 +530,10 @@ input[type='submit'] {
   main {
     padding: 0.5rem 20%;
   }
+
+  main > dialog[open] {
+    width: 60vw;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -546,5 +552,19 @@ input[type='submit'] {
 
   main {
     padding: 0.5rem 12.5%;
+  }
+
+  main > dialog[open] {
+    width: 80vw;
+  }
+
+  .manage-modal[open] {
+    width: 4.5rem;
+    margin-left: -6rem;
+  }
+
+  .manage-arrow {
+    left: 4.25rem;
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
   }
 }

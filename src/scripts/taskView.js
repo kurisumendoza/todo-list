@@ -1,6 +1,6 @@
 import { tasksListContainer, pinnedContainer, pinnedTasks } from './selectors';
 import { showElement, hideElement } from './helpers';
-import { isSameDay, hasNotStarted } from './taskFilterByDate';
+import { isSameDay, isSameDate, hasNotStarted } from './taskFilterByDate';
 
 let tasksHTML = [];
 let pinnedTasksHTML = [];
@@ -9,9 +9,9 @@ const generateTaskHTML = function (entry, notToday) {
   return `
     <div class="task-container" data-id="${entry.id}" data-tag="${entry.tag}"
       ${notToday ? 'style="display: none;"' : ''}>
-      <input type="checkbox" ${entry.completed ? 'checked' : ''} />
+      <input type="checkbox" ${isSameDate(entry) ? 'checked' : ''} />
         <div class="task-details">
-          <p class="task-name ${entry.completed ? 'completed' : ''}">
+          <p class="task-name ${isSameDate(entry) ? 'completed' : ''}">
             ${entry.task}
           </p>
           <p class="task-note">${entry.note}</p>

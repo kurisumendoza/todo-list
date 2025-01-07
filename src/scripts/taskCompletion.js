@@ -1,5 +1,6 @@
 import { tasksListContainer, pinnedContainer } from './selectors';
 import { categoriesObj } from './helpers';
+import { dateObj } from './dateNavigator';
 import { saveToLocalStorage } from './storageManager';
 
 const categories = categoriesObj;
@@ -18,7 +19,7 @@ export const toggleCompletion = function (e) {
   if (e.target.type !== 'checkbox') return;
   const task = e.target.closest('.task-container');
   const category = identifyCategory(task.dataset.tag);
-  category.toggleCompletion(task.dataset.id);
+  category.toggleCompletion(task.dataset.id, dateObj.date);
   toggleCompletionStyling(task);
   saveToLocalStorage(task.dataset.tag, category);
 };

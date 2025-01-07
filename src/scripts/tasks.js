@@ -15,7 +15,7 @@ export class Task {
       date,
       time,
       pinned = false,
-      completed = false,
+      completed = [],
       recurrence,
       tag,
     } = taskDetails;
@@ -51,9 +51,12 @@ export class Task {
       !this.tasksList[this.findByID(id)].pinned;
   }
 
-  toggleCompletion(id) {
-    this.tasksList[this.findByID(id)].completed =
-      !this.tasksList[this.findByID(id)].completed;
+  toggleCompletion(id, date) {
+    const completedDates = this.tasksList[this.findByID(id)].completed;
+    if (completedDates.includes(date))
+      completedDates.splice(completedDates.indexOf(date), 1);
+    else completedDates.push(date);
+    console.log(completedDates);
   }
 
   delete(id) {

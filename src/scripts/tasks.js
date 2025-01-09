@@ -56,7 +56,6 @@ export class Task {
     if (completedDates.includes(date))
       completedDates.splice(completedDates.indexOf(date), 1);
     else completedDates.push(date);
-    console.log(completedDates);
   }
 
   delete(id) {

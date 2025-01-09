@@ -3,7 +3,6 @@ import { editTaskModal } from './taskEditing';
 import { moveTask } from './reorderTasks';
 import { categoriesObj } from './helpers';
 import { saveToLocalStorage } from './storageManager';
-import { isSameDay } from './taskFilterByDate';
 import {
   renderTaskManageModal,
   renderConfirmDeleteModal,
@@ -36,7 +35,8 @@ const deleteTask = function ({ id, tag }) {
     categoriesObj[tag].tasksList,
     categoriesObj[tag].findByID(id)
   );
-  categoriesObj[tag].delete(categoriesObj[id]);
+  categoriesObj[tag].delete(id);
+  togglePinnedView(categoriesObj[tag].tasksList);
   saveToLocalStorage(tag, categoriesObj[tag]);
   confirmDeleteModal.close();
 };

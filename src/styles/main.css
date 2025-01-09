@@ -130,6 +130,17 @@ header {
   transition: 0.25s ease;
 }
 
+.today-btn {
+  position: absolute;
+  margin-top: 7rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0.25rem;
+  background-color: var(--accent);
+  color: var(--alternative-font-color);
+  opacity: 0;
+}
+
 main {
   padding: 0.5rem 30%;
 }

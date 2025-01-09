@@ -3,6 +3,7 @@ import { taskModalUI } from './selectors';
 import { filterTasks } from './taskFilterByTag';
 import { renderNewTask, renderEditedTask } from './taskView';
 import { categoriesObj, showElement, hideElement } from './helpers';
+import { goToDate } from './dateNavigator';
 import { saveToLocalStorage } from './storageManager';
 
 export const editTask = new TaskModal();
@@ -50,6 +51,11 @@ const saveEditedTask = function () {
   editTask.getRecurrence();
   filterTasks(taskModalUI.category.value);
   editedTask();
+  goToDate(
+    categoriesObj[taskDetails.tag].tasksList[
+      categoriesObj[taskDetails.tag].findByID(taskDetails.id)
+    ].date
+  );
   saveToLocalStorage(
     taskModalUI.category.value,
     editTask.category(taskModalUI.category.value)

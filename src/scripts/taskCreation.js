@@ -3,6 +3,7 @@ import { addTaskInput, addTaskBtn, taskModalUI } from './selectors';
 import { renderNewTask } from './taskView';
 import { saveToLocalStorage } from './storageManager';
 import { filterTasks } from './taskFilterByTag';
+import { goToDate } from './dateNavigator';
 import { showElement, hideElement } from './helpers';
 
 const createTask = new TaskModal();
@@ -28,6 +29,7 @@ const saveTask = function (category) {
 
 const displayTask = function (category) {
   renderNewTask(category.tasksList);
+  goToDate(category.tasksList[category.tasksList.length - 1].date);
 };
 
 taskModalUI.form.addEventListener('keypress', (e) => {

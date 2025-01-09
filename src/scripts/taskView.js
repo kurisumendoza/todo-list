@@ -123,8 +123,9 @@ export const removeDeletedTask = function (tasksList, pos) {
 export const togglePinnedView = function (tasksList) {
   const hasPinned = tasksList.filter((task) => task.pinned);
   const hasSameDay = hasPinned.some((task) => isSameDay(task.recurrence));
+  const hasStarted = hasPinned.some((task) => !hasNotStarted(task.date));
 
-  if (hasSameDay) showElement(pinnedContainer);
+  if (hasSameDay && hasStarted) showElement(pinnedContainer);
   else hideElement(pinnedContainer);
 };
 

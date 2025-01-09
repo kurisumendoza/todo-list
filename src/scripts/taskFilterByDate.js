@@ -5,7 +5,9 @@ export const isSameDay = function (task) {
 };
 
 export const isSameDate = function (task) {
-  if (task.completed.includes(dateObj.date)) return true;
+  if (task.tag === 'monthly' && task.completed.includes(dateObj.month))
+    return true;
+  else if (task.completed.includes(dateObj.date)) return true;
 };
 
 export const hasNotStarted = function (date) {

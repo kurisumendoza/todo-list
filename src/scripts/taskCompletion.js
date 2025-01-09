@@ -19,7 +19,11 @@ export const toggleCompletion = function (e) {
   if (e.target.type !== 'checkbox') return;
   const task = e.target.closest('.task-container');
   const category = identifyCategory(task.dataset.tag);
-  category.toggleCompletion(task.dataset.id, dateObj.date);
+
+  if (category === categoriesObj.monthly)
+    category.toggleCompletion(task.dataset.id, dateObj.month);
+  else category.toggleCompletion(task.dataset.id, dateObj.date);
+
   toggleCompletionStyling(task);
   saveToLocalStorage(task.dataset.tag, category);
 };

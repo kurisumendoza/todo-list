@@ -7,6 +7,7 @@ import { renderTasksList, togglePinnedView } from './taskView';
 export const dateObj = {
   rawDate: moment(),
   day: moment().format('dddd'),
+  month: moment().format('MMMM'),
   date: moment().format('LL'),
 };
 let dayNavClicks = 0;
@@ -27,6 +28,7 @@ const changeDate = function (direction, btn) {
   }
   dayNavClicks += direction;
   dateObj.day = moment().add(dayNavClicks, 'days').format('dddd');
+  dateObj.month = moment().add(dayNavClicks, 'days').format('MMMM');
   dateObj.date = moment().add(dayNavClicks, 'days').format('LL');
   dateObj.rawDate = moment().add(dayNavClicks, 'days');
   dateNavUI.previousDayBtn.style.opacity = '';
